@@ -9,11 +9,13 @@ describe('My Login application', () => {
             LoginPage.commonStrings.emptyString,
             LoginPage.commonStrings.emptyString,
         );
+
         // Expect username required error message exist
         await expect(LoginPage.errorWithMessage).toBeExisting();
         await expect(LoginPage.errorWithMessage).toHaveTextContaining(
             LoginPage.errorMessages.usernameRequired,
         );
+
         // Trying to log in with standard user but empty password
         await LoginPage.login(
             LoginPage.usernames.standard,
@@ -27,6 +29,7 @@ describe('My Login application', () => {
         );
     });
     it('should not login with the locked out user', async () => {
+        // Trying to log in the locked out user
         await LoginPage.login(
             LoginPage.usernames.lockedOut,
             LoginPage.password.correct,
@@ -56,6 +59,7 @@ describe('My Login application', () => {
     });
 
     it('should login with valid credentials', async () => {
+        // Trying to log in with valid credentials (successful login)
         await LoginPage.login(
             LoginPage.usernames.standard,
             LoginPage.password.correct,

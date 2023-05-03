@@ -8,6 +8,9 @@ module.exports = class Page {
      */
     commonStrings = {
         emptyString: '',
+        confirm: 'Confirm',
+        cancel: 'Cancel',
+        ok: 'Ok',
     };
     /**
      * Opens a sub-page of the page
