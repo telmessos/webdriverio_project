@@ -28,7 +28,8 @@ describe('Alert handling tests', () => {
         // Verifying alert is not displayed
         expect(await browser.isAlertOpen()).toBe(false);
 
-        // Waiting for 5 seconds and verifying alert is displayed
+        // Waiting for 6 seconds and verifying alert is displayed
+        await browser.pause(6000);
         expect(await browser.isAlertOpen()).toBe(true);
 
         // Verifying alert text to be 'This alert appeared after 5 seconds'
