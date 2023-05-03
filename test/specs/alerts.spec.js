@@ -72,7 +72,7 @@ describe('Alert handling tests', () => {
         ]);
     });
 
-    it.only('Prompt box should display and show expected message', async () => {
+    it('Prompt box should display and show expected message', async () => {
         await AlertPage.goToPage();
         // Clicking delayed alert button
         await AlertPage.promptButton.click();
