@@ -1,32 +1,46 @@
 const allure = require('allure-commandline');
 exports.config = {
     runner: 'local',
-    specs: ['./test/specs/**/*'],
-    // specs: ['./test/specs/**/alerts.spec.js'],
+    // specs: ['./test/specs/**/*'],
+    specs: ['./test/specs/**/alerts.spec.js'],
     exclude: [],
     maxInstances: 1,
     capabilities: [
         {
-            maxInstances: 1,
+            maxInstances: 2,
             browserName: 'chrome',
             acceptInsecureCerts: true,
         },
     ],
-    logLevel: 'info',
+    logLevel: 'warn',
     bail: 0,
     baseUrl: 'https://www.saucedemo.com',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     services: ['chromedriver'],
+    before: async function () {
+        await browser.maximizeWindow();
+    },
+    afterEach: async function (
+        step,
+        scenario,
+        { error, duration, passed },
+        context,
+    ) {
+        if (error) {
+            await browser.takeScreenshot();
+        }
+    },
     framework: 'mocha',
     reporters: [
+        'spec',
         [
             'allure',
             {
                 outputDir: 'allure-results',
-                disableWebdriverStepsReporting: true,
-                disableWebdriverScreenshotsReporting: true,
+                disableWebdriverStepsReporting: false,
+                disableWebdriverScreenshotsReporting: false,
             },
         ],
     ],
