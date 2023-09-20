@@ -56,6 +56,10 @@ describe('My Login application', () => {
             LoginPage.usernames.standard,
             LoginPage.password.wrong,
         );
+        await expect(LoginPage.errorWithMessage).toBeExisting();
+        await expect(LoginPage.errorWithMessage).toHaveTextContaining(
+            LoginPage.errorMessages.invalidUserPass,
+        );
     });
 
     it('should login with valid credentials', async () => {

@@ -29,6 +29,7 @@ describe('Alert handling tests', () => {
         expect(await browser.isAlertOpen()).toBe(false);
 
         // Waiting for 6 seconds and verifying alert is displayed
+        // eslint-disable-next-line wdio/no-pause
         await browser.pause(6000);
         expect(await browser.isAlertOpen()).toBe(true);
 
@@ -73,7 +74,7 @@ describe('Alert handling tests', () => {
         ]);
     });
 
-    it('Prompt box should display and show expected message', async () => {
+    it('prompt box should display and show expected message', async () => {
         await AlertPage.goToPage();
         // Clicking delayed alert button
         await AlertPage.promptButton.click();
@@ -87,10 +88,8 @@ describe('Alert handling tests', () => {
         // Accepting alert
         await PageHelper.acceptAlert();
 
-        await browser.pause(3000);
-
         // Verifying 'You entered Ceyhun Ganioglu' text displayed
-        result = await AlertPage.promptResult;
+        let result = await AlertPage.promptResult;
         await expect(result).toHaveTextContaining([
             AlertPage.alertTexts.youEntered,
             AlertPage.alertTexts.ceyhun,
