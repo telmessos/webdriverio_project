@@ -2,7 +2,7 @@ const allure = require('allure-commandline');
 exports.config = {
     runner: 'local',
     // specs: ['./test/specs/**/*'],
-    specs: ['./test/specs/**/alerts.spec.js'],
+    specs: ['./test/specs/**/*.spec.js'],
     exclude: [],
     maxInstances: 1,
     capabilities: [
