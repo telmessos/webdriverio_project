@@ -17,7 +17,7 @@
     "@wdio/mocha-framework": "^8.10.0",
     "@wdio/spec-reporter": "^8.10.0",
     "allure-commandline": "^2.22.0",
-    "chromedriver": "^117.0.2",
+    "chromedriver": "^123.0.0",
     "eslint": "^8.40.0",
     "eslint-plugin-wdio": "^8.8.7",
     "log4js": "^6.9.1",
